@@ -1,0 +1,25 @@
+<div style="width: 50%; margin: 0 auto;">
+
+  <br>
+
+  <h2 style="text-align: center"> Login </h2>
+
+  <br>
+  <br>
+
+  <form #loginform = "ngForm" (ngSubmit) = "onSubmit(loginform)" >
+
+    <input type="email" name="email" class="form-control" id="email"  placeholder="Email" ngModel>
+
+    <br>
+
+    <input type="password" name="password" class="form-control" id="password" placeholder="Password" ngModel>
+
+
+  <div style="text-align: center; margin-top: 50px">
+    <button type="submit" class="btn btn-primary">Login</button>
+    <a href="Register"><button type="button" class="btn btn-primary" style="margin-left: 30px">Register new Account</button></a>
+  </div>
+
+  </form>
+</div>

@@ -1,0 +1,29 @@
+<div style="width: 50%; margin: 0 auto;">
+
+  <br>
+
+  <h2 style="text-align: center"> Register a new Account </h2>
+
+  <br>
+  <br>
+
+  <form #registerform = "ngForm" (ngSubmit) = "onSubmit(registerform)" >
+
+    <input type="email" name="email" class="form-control" id="email" placeholder="Email" ngModel>
+
+    <br>
+
+    <input type="text" name="name" class="form-control" id="name" placeholder="Name" ngModel>
+
+    <br>
+
+    <input type="password" name="password" class="form-control" id="password" placeholder="Password" ngModel>
+    <br>
+    <input type="password" name="password" class="form-control" id="repeatedPassword" placeholder="Repeat Password" ngModel>
+
+    <div style="text-align: center; margin-top: 50px">
+      <button type="submit" class="btn btn-primary" style="width: 100%">Register</button>
+    </div>
+
+  </form>
+</div>
