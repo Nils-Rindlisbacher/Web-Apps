@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="1737753151350322492" datatype="html">
+        <source><x id="PH" equiv-text="this.title"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="433605817460877412" datatype="html">
+        <source> Welcome to the Trick Manager</source>
+        <target>Willkommen beim Trick Manager</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">2,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2240314820453576762" datatype="html">
+        <source>Here you can generate all sorts of Skate Tricks or just see all tricks by there category</source>
+        <target>Hier kannst du jeden Skate-Trick generieren oder einfach alle Tricks nach Kategorien sortiert sehen</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1908285951500318953" datatype="html">
+        <source> Login </source>
+        <target> Anmelden </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login.component.html</context>
+          <context context-type="linenumber">5,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7253028057332436402" datatype="html">
+        <source>New Account</source>
+        <target>Registrieren</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2454050363478003966" datatype="html">
+        <source>Login</source>
+        <target>Anmelden</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login.component.html</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navigation-bar/navigation-bar.component.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8010994039154340953" datatype="html">
+        <source>Generator</source>
+        <target>Generator</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navigation-bar/navigation-bar.component.html</context>
+          <context context-type="linenumber">9,10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2614607010577950577" datatype="html">
+        <source>Overview</source>
+        <target>Übersicht</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navigation-bar/navigation-bar.component.html</context>
+          <context context-type="linenumber">13,14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5009934584280096878" datatype="html">
+        <source> Register a new Account </source>
+        <target> Registrieren </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register/register.component.html</context>
+          <context context-type="linenumber">5,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3301086086650990787" datatype="html">
+        <source>Register</source>
+        <target>Registrieren</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register/register.component.html</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1845704809097300203" datatype="html">
+        <source>The Skate Trick Generator</source>
+        <target>Der Skate Trick Generator</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/trick-generator/trick-generator.component.html</context>
+          <context context-type="linenumber">2,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1481361892864833441" datatype="html">
+        <source>Generate 331 different Skate Tricks in 7 category&apos;s</source>
+        <target>Generiere 331 verschiedene Skate Tricks in 7 Kategorien</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/trick-generator/trick-generator.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6244379616100338241" datatype="html">
+        <source>The Skate Trick Overview</source>
+        <target>Die Skate Trick Übersicht</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/trick-overview/trick-overview.component.html</context>
+          <context context-type="linenumber">2,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6186113971093102751" datatype="html">
+        <source>See all 331 Skate Tricks in 7 category&apos;s</source>
+        <target>Alle 331 Skate-Tricks in 7 Kategorien anzeigen</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/trick-overview/trick-overview.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

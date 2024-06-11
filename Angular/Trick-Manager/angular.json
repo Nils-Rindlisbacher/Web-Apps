@@ -4,6 +4,12 @@
   "newProjectRoot": "projects",
   "projects": {
     "Trick-Manager": {
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "de-CH": "src/locale/messages.de.xlf"
+        }
+      },
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,6 +23,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "localize": [
+              "en-US"
+            ],
             "outputPath": "dist/trick-manager",
             "index": "src/index.html",
             "browser": "src/main.ts",
