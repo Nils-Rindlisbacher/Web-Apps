@@ -1,0 +1,1 @@
+# Trick Manager Documentation
