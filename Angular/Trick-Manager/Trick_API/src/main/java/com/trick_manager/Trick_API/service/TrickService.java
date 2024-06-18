@@ -5,6 +5,7 @@ import com.trick_manager.Trick_API.repository.TrickRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,6 +39,19 @@ public class TrickService {
    */
   public List<Trick> getAllTricks() {
     return trickRepository.findAll();
+  }
+
+  public List<String> getAllTypes() {
+    List<Trick> tricks = trickRepository.findAll();
+    ArrayList<String> types = new ArrayList<>();
+
+    for (Trick trick : tricks) {
+      if(!types.contains(trick.trick_type)){
+        types.add(trick.trick_type);
+      }
+    }
+
+    return types;
   }
 
   /**

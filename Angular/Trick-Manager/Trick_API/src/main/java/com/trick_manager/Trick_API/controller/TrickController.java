@@ -43,6 +43,11 @@ public class TrickController {
     return trickService.getAllTricks();
   }
 
+  @GetMapping("/types")
+  public List<String> getAllTypes() {
+    return trickService.getAllTypes();
+  }
+
   /**
    * Get a trick by ID.
    *

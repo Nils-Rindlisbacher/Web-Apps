@@ -11,10 +11,10 @@ public class Trick {
   private Long trick_id;
 
   @Column(nullable = false)
-  private String trick_name;
+  public String trick_name;
 
   @Column(nullable = false)
-  private String trick_type;
+  public String trick_type;
   // Constructors, getters and setters, and other methods...
 
   // Getters
