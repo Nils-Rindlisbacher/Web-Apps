@@ -9,6 +9,13 @@
           <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="8650499415827640724" datatype="html">
+        <source>Type</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data-display/data-display.component.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="433605817460877412" datatype="html">
         <source> Welcome to the Trick Manager</source>
         <context-group purpose="location">
@@ -43,23 +50,19 @@
           <context context-type="sourcefile">src/app/login/login.component.html</context>
           <context context-type="linenumber">25,26</context>
         </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigation-bar/navigation-bar.component.html</context>
-          <context context-type="linenumber">17,18</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="8010994039154340953" datatype="html">
         <source>Generator</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigation-bar/navigation-bar.component.html</context>
-          <context context-type="linenumber">9,10</context>
+          <context context-type="linenumber">8,9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2614607010577950577" datatype="html">
         <source>Overview</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigation-bar/navigation-bar.component.html</context>
-          <context context-type="linenumber">13,14</context>
+          <context context-type="linenumber">12,13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5009934584280096878" datatype="html">
