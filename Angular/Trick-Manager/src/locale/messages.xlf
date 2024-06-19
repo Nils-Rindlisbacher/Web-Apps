@@ -37,6 +37,18 @@
           <context context-type="linenumber">5,7</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="1431416938026210429" datatype="html">
+        <source>Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register/register.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <note priority="1" from="description">Password placeholder</note>
+      </trans-unit>
       <trans-unit id="7253028057332436402" datatype="html">
         <source>New Account</source>
         <context-group purpose="location">
@@ -71,6 +83,14 @@
           <context context-type="sourcefile">src/app/register/register.component.html</context>
           <context context-type="linenumber">5,7</context>
         </context-group>
+      </trans-unit>
+      <trans-unit id="4541118533130714111" datatype="html">
+        <source>Repeat Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register/register.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <note priority="1" from="description">Repeat Password placeholder</note>
       </trans-unit>
       <trans-unit id="3301086086650990787" datatype="html">
         <source>Register</source>
