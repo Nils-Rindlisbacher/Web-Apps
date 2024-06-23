@@ -29,12 +29,8 @@ export class DataDisplayComponent {
 
   trick_types: any[] = [];
 
-  constructor() {
-  }
-
   ngOnInit(): void {
     this.fetchData();
-    this.getAllTypes();
   }
 
   fetchData() {
@@ -42,14 +38,11 @@ export class DataDisplayComponent {
       .subscribe((tricks: any) => {
         this.data = tricks;
       });
-  }
 
-  getAllTypes(){
-    for (let trick of this.data){
-        if(!this.trick_types.includes(trick.type)){
-          this.trick_types.push(trick.type);
-        }
-    }
+    this.httpClient.get('http://localhost:8080/types')
+      .subscribe((types: any) => {
+        this.trick_types = types;
+      });
   }
 
   getAllTricksOfType(){
