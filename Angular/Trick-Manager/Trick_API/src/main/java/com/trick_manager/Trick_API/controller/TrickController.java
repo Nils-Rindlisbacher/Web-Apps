@@ -54,7 +54,7 @@ public class TrickController {
    * @param id the ID of the trick to get
    * @return the ResponseEntity with status 200 (OK) and with body of the trick, or with status 404 (Not Found) if the trick does not exist
    */
-  @GetMapping("/tricks/{id}")
+  @GetMapping("/trick/{id}")
   public ResponseEntity<Trick> getTrickById(@PathVariable Long id) {
     Optional<Trick> trick = trickService.getTrickById(id);
     return trick.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
