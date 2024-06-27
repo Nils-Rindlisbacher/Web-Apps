@@ -15,9 +15,7 @@ public class Trick {
 
   @Column(nullable = false)
   public String trick_type;
-  // Constructors, getters and setters, and other methods...
 
-  // Getters
   public Long getId() {
     return trick_id;
   }
@@ -31,7 +29,6 @@ public class Trick {
   }
 
 
-  // Setters
   public void setId(Long trick_id) {
     this.trick_id = trick_id;
   }
