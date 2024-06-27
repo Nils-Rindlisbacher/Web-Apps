@@ -67,7 +67,7 @@ public class TrickController {
    * @param trick the updated trick
    * @return the ResponseEntity with status 200 (OK) and with body of the updated trick, or with status 404 (Not Found) if the trick does not exist
    */
-  @PutMapping("/tricks/{id}")
+  @PutMapping("/trick/{id}")
   public ResponseEntity<Trick> updateTrick(@PathVariable Long id, @RequestBody Trick trick) {
     Trick updatedTrick = trickService.updateTrick(id, trick);
     return ResponseEntity.ok(updatedTrick);
@@ -79,7 +79,7 @@ public class TrickController {
    * @param id the ID of the trick to delete
    * @return the ResponseEntity with status 200 (OK) and with body of the message "Trick deleted successfully"
    */
-  @DeleteMapping("/tricks/{id}")
+  @DeleteMapping("/trick/{id}")
   public ResponseEntity<String> deleteTrick(@PathVariable Long id) {
     trickService.deleteTrick(id);
     return ResponseEntity.ok("Trick deleted successfully");
