@@ -1,35 +1,6 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Erstellungszeit: 21. Feb 2024 um 20:51
--- Server-Version: 10.4.28-MariaDB
--- PHP-Version: 8.2.4
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 CREATE DATABASE skateboarding;
 
 USE skateboarding;
-
---
--- Datenbank: `skateboarding`
---
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `skate_tricks`
---
 
 CREATE TABLE `skate_tricks` (
   `trick_id` int(255) NOT NULL,
@@ -38,9 +9,6 @@ CREATE TABLE `skate_tricks` (
   `trick_video` varchar(255)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Daten für Tabelle `skate_tricks`
---
 
 INSERT INTO `skate_tricks` (`trick_id`, `trick_name`, `trick_type`) VALUES
 (1, 'Backside 180', 'Basic Tricks'),
@@ -375,21 +343,10 @@ INSERT INTO `skate_tricks` (`trick_id`, `trick_name`, `trick_type`) VALUES
 (330, 'Street Plant', 'Freestyle Tricks'),
 (331, 'Wallie', 'Freestyle Tricks');
 
---
--- Indizes der exportierten Tabellen
---
 
---
--- Indizes für die Tabelle `skate_tricks`
---
-ALTER TABLE `skate_tricks`
-  ADD PRIMARY KEY (`trick_id`);
-
---
--- AUTO_INCREMENT für Tabelle `skate_tricks`
---
 ALTER TABLE `skate_tricks`
   MODIFY `trick_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=332;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
