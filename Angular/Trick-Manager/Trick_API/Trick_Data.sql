@@ -10,7 +10,7 @@ CREATE TABLE `skate_tricks` (
 );
 
 CREATE TABLE `completed_tricks` (
-  `completed_trick_id` int(255) NOT NULL PRIMARY KEY,
+  `completed_trick_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `trick_id` int(255) NOT NULL
 );
 
