@@ -7,7 +7,12 @@ CREATE TABLE `skate_tricks` (
   `trick_name` varchar(255) NOT NULL,
   `trick_type` varchar(255) NOT NULL,
   `trick_video` varchar(255)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+);
+
+CREATE TABLE `completed_tricks` (
+  `completed_trick_id` int(255) NOT NULL PRIMARY KEY,
+  `trick_id` int(255) NOT NULL
+);
 
 
 INSERT INTO `skate_tricks` (`trick_id`, `trick_name`, `trick_type`) VALUES
@@ -345,10 +350,6 @@ INSERT INTO `skate_tricks` (`trick_id`, `trick_name`, `trick_type`) VALUES
 
 
 ALTER TABLE `skate_tricks`
-  MODIFY `trick_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=332;
+  MODIFY `trick_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT, AUTO_INCREMENT=332;
 
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
