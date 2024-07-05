@@ -1,6 +1,8 @@
 package com.trick_manager.Trick_API.service;
 
+import com.trick_manager.Trick_API.entity.CompletedTrick;
 import com.trick_manager.Trick_API.entity.Trick;
+import com.trick_manager.Trick_API.repository.CompletedTrickRepository;
 import com.trick_manager.Trick_API.repository.TrickRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,10 +18,12 @@ import java.util.Optional;
 public class TrickService {
 
   private final TrickRepository trickRepository;
+  private final CompletedTrickRepository completedTrickRepository;
 
   @Autowired
-  public TrickService(TrickRepository trickRepository) {
+  public TrickService(TrickRepository trickRepository, CompletedTrickRepository completedTrickRepository) {
     this.trickRepository = trickRepository;
+    this.completedTrickRepository = completedTrickRepository;
   }
 
   /**
@@ -32,6 +36,17 @@ public class TrickService {
     return trickRepository.save(trick);
   }
 
+
+  /**
+   * Save a completed trick.
+   *
+   * @param completedTrick the entity to save
+   * @return the persisted entity
+   */
+  public CompletedTrick saveCompletedTrick(CompletedTrick completedTrick) {
+    return completedTrickRepository.save(completedTrick);
+  }
+
   /**
    * Get all the tricks.
    *
@@ -41,6 +56,11 @@ public class TrickService {
     return trickRepository.findAll();
   }
 
+  /**
+   * Get all the tricks.
+   *
+   * @return the list of entities
+   */
   public List<String> getAllTypes() {
     List<Trick> tricks = trickRepository.findAll();
     ArrayList<String> types = new ArrayList<>();
@@ -55,6 +75,15 @@ public class TrickService {
   }
 
   /**
+   * Get all the tricks.
+   *
+   * @return the list of entities
+   */
+  public List<CompletedTrick> getAllCompletedTricks() {
+    return completedTrickRepository.findAll();
+  }
+
+  /**
    * Get one trick by ID.
    *
    * @param id the ID of the entity
@@ -62,6 +91,16 @@ public class TrickService {
    */
   public Optional<Trick> getTrickById(Long id) {
     return trickRepository.findById(id);
+  }
+
+  /**
+   * Get one trick by ID.
+   *
+   * @param id the ID of the entity
+   * @return the entity
+   */
+  public Optional<CompletedTrick> getCompletedTrickById(Long id) {
+    return completedTrickRepository.findById(id);
   }
 
   /**
@@ -90,5 +129,15 @@ public class TrickService {
    */
   public void deleteTrick(Long id) {
     trickRepository.deleteById(id);
+  }
+
+
+  /**
+   * Delete the completed trick by ID.
+   *
+   * @param id the ID of the entity
+   */
+  public void deleteCompletedTrick(Long id) {
+    completedTrickRepository.deleteById(id);
   }
 }
