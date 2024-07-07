@@ -1,6 +1,7 @@
 import {Component, inject, Input} from '@angular/core';
 import {NgClass, NgForOf} from "@angular/common";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-data-display',
@@ -8,7 +9,8 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
   imports: [
     NgForOf,
     HttpClientModule,
-    NgClass
+    NgClass,
+    MatIconModule
   ],
   templateUrl: './data-display.component.html',
   styleUrl: './data-display.component.scss'
@@ -24,6 +26,7 @@ export class DataDisplayComponent {
   randomTrick = '';
 
   allTricksOfType: any[] = [];
+  public allCompletedTricksOfType: any[] = [];
 
   data: any[] = [];
 
@@ -47,15 +50,18 @@ export class DataDisplayComponent {
 
   getAllTricksOfType(){
     this.allTricksOfType = [];
+    this.allCompletedTricksOfType = [];
 
     for (let trick of this.data){
       if(trick.type == this.selectedType){
         this.allTricksOfType.push(trick.name);
+        if (trick.completed){
+          this.allCompletedTricksOfType.push(trick.name);
+        }
       }
     }
 
     this.randomTrick = (this.allTricksOfType[this.getRandomInt(this.allTricksOfType.length)]);
-
   }
 
   getRandomInt(max: number) {

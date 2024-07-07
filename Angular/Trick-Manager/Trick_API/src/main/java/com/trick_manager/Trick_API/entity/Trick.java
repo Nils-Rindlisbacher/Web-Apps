@@ -17,7 +17,7 @@ public class Trick {
   public String trick_type;
 
   @Column(nullable = false)
-  public Boolean completed;
+  public Boolean trick_completed;
 
   public Long getId() {
     return trick_id;
@@ -32,7 +32,7 @@ public class Trick {
   }
 
   public Boolean getCompleted() {
-    return completed;
+    return trick_completed;
   }
 
 
@@ -48,6 +48,6 @@ public class Trick {
     this.trick_type = trick_type;
   }
 
-  public void setCompleted(Boolean completed) { this.completed = completed; }
+  public void setCompleted(Boolean completed) { this.trick_completed = completed; }
 
 }
