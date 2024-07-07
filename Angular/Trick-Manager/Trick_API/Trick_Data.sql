@@ -6,7 +6,7 @@ CREATE TABLE `skate_tricks` (
   `trick_id` int(255) NOT NULL,
   `trick_name` varchar(255) NOT NULL,
   `trick_type` varchar(255) NOT NULL,
-  `completed` boolean NOT NULL DEFAULT FALSE,
+  `trick_completed` boolean NOT NULL DEFAULT FALSE,
   `trick_video` varchar(255)
 );
 
