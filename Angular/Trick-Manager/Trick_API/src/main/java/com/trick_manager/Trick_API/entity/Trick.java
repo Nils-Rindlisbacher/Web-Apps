@@ -16,6 +16,9 @@ public class Trick {
   @Column(nullable = false)
   public String trick_type;
 
+  @Column(nullable = false)
+  public Boolean completed;
+
   public Long getId() {
     return trick_id;
   }
@@ -26,6 +29,10 @@ public class Trick {
 
   public String getType() {
     return trick_type;
+  }
+
+  public Boolean getCompleted() {
+    return completed;
   }
 
 
@@ -40,5 +47,7 @@ public class Trick {
   public void setType(String trick_type) {
     this.trick_type = trick_type;
   }
+
+  public void setCompleted(Boolean completed) { this.completed = completed; }
 
 }
