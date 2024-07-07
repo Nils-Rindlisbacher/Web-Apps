@@ -6,14 +6,9 @@ CREATE TABLE `skate_tricks` (
   `trick_id` int(255) NOT NULL,
   `trick_name` varchar(255) NOT NULL,
   `trick_type` varchar(255) NOT NULL,
+  `completed` boolean NOT NULL DEFAULT FALSE,
   `trick_video` varchar(255)
 );
-
-CREATE TABLE `completed_tricks` (
-  `completed_trick_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `trick_id` int(255) NOT NULL
-);
-
 
 INSERT INTO `skate_tricks` (`trick_id`, `trick_name`, `trick_type`) VALUES
 (1, 'Backside 180', 'Basic Tricks'),
