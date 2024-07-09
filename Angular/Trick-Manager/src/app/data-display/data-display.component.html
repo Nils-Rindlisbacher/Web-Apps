@@ -24,7 +24,7 @@
     @if(page == 'generator' && selectedType != ''){
       <li><h3>{{randomTrick }} @if (allCompletedTricksOfType.includes(randomTrick)){ <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="check" /> } @else { <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="close" /> } </h3></li>
 
-      <button id="generateButton" (click)="getAllTricksOfType()"><strong>Generate Trick</strong></button>
+      <button id="generateButton" (click)="getAllTricksOfType()"><strong i18n>Generate Trick</strong></button>
 
     } @else if(page == 'overview'){
       @for(trick of allTricksOfType; track trick.id){
