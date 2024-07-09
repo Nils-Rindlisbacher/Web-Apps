@@ -9,7 +9,15 @@
           <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8650499415827640724" datatype="html">
+      <trans-unit id="4880361129703661609" datatype="html">
+        <source>Completed Skate Tricks</source>
+        <target>Abgeschlossene Skate Tricks</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/completed-tricks/completed-tricks.component.html</context>
+          <context context-type="linenumber">2,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1806667489382256324" datatype="html">
         <source>Category</source>
         <target>Kategorie</target>
         <context-group purpose="location">
@@ -18,26 +26,10 @@
         </context-group>
       </trans-unit>
       <trans-unit id="433605817460877412" datatype="html">
-        <source> Welcome to the Trick Manager</source>
+        <source>Welcome to the Trick Manager</source>
         <target>Willkommen beim Trick Manager</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/home/home.component.html</context>
-          <context context-type="linenumber">2,4</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8986632488591510083" datatype="html">
-        <source>Completed Tricks</source>
-        <target>Abgeschlossene Tricks</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigation-bar/navigation-bar.component.html</context>
-          <context context-type="linenumber">16,17</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="4880361129703661609" datatype="html">
-        <source>Completed Skate Tricks</source>
-        <target>Abgeschlossene Skate Tricks</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/completed-tricks/completed-tricks.component.html</context>
           <context context-type="linenumber">2,4</context>
         </context-group>
       </trans-unit>
@@ -80,22 +72,16 @@
       </trans-unit>
       <trans-unit id="2454050363478003966" datatype="html">
         <source>Login</source>
-        <target>Anmelden</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/login/login.component.html</context>
           <context context-type="linenumber">25,26</context>
         </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigation-bar/navigation-bar.component.html</context>
-          <context context-type="linenumber">17,18</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="8010994039154340953" datatype="html">
         <source>Generator</source>
-        <target>Generator</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigation-bar/navigation-bar.component.html</context>
-          <context context-type="linenumber">9,10</context>
+          <context context-type="linenumber">8,9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2614607010577950577" datatype="html">
@@ -103,12 +89,20 @@
         <target>Übersicht</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigation-bar/navigation-bar.component.html</context>
-          <context context-type="linenumber">13,14</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8986632488591510083" datatype="html">
+        <source>Completed Tricks</source>
+        <target>Abgeschlossene Tricks</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navigation-bar/navigation-bar.component.html</context>
+          <context context-type="linenumber">16,17</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5009934584280096878" datatype="html">
         <source> Register a new Account </source>
-        <target> Registrieren </target>
+        <target> Neues Konto Registrieren</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/register/register.component.html</context>
           <context context-type="linenumber">5,7</context>
@@ -125,7 +119,6 @@
       </trans-unit>
       <trans-unit id="3301086086650990787" datatype="html">
         <source>Register</source>
-        <target>Registrieren</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/register/register.component.html</context>
           <context context-type="linenumber">25,26</context>
