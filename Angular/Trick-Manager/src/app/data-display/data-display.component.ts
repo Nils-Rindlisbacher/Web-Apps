@@ -1,7 +1,26 @@
-import {Component, inject, Input} from '@angular/core';
+import {Component, Inject, inject, Input} from '@angular/core';
 import {NgClass, NgForOf} from "@angular/common";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {MatIconModule} from '@angular/material/icon';
+import {
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent, MatDialogRef,
+  MatDialogTitle
+} from "@angular/material/dialog";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {FormsModule} from "@angular/forms";
+import {MatButtonModule} from "@angular/material/button";
+import {MatOption, MatSelect} from "@angular/material/select";
+
+
+export interface DialogData {
+  tricks: any[];
+}
+
 
 @Component({
   selector: 'app-data-display',
@@ -18,19 +37,31 @@ import {MatIconModule} from '@angular/material/icon';
 export class DataDisplayComponent {
   @Input() page: any;
 
-  private httpClient = inject(HttpClient);
+  httpClient = inject(HttpClient);
 
   isDropdownActive = false;
 
-  selectedType = '';
-  randomTrick = '';
+  selectedType: string = '';
+  randomTrick: string = '';
 
   allTricksOfType: any[] = [];
-  public allCompletedTricksOfType: any[] = [];
+  allCompletedTricksOfType: any[] = [];
+  trick_types: any[] = [];
 
   data: any[] = [];
+  constructor(public dialog: MatDialog) {}
 
-  trick_types: any[] = [];
+  openDialog(): void {
+    console.log('Dialog open');
+
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      data: {tricks: this.allTricksOfType},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 
   ngOnInit(): void {
     this.fetchData();
@@ -67,6 +98,34 @@ export class DataDisplayComponent {
   getRandomInt(max: number) {
     return Math.floor(Math.random() * max);
   }
+}
 
+
+@Component({
+  selector: 'create-completed-trick-dialog',
+  templateUrl: 'create-completed-trick-dialog.html',
+  standalone: true,
+  imports: [
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatButtonModule,
+    MatDialogTitle,
+    MatDialogContent,
+    MatDialogActions,
+    MatDialogClose,
+    MatSelect,
+    MatOption,
+  ],
+})
+export class DialogOverviewExampleDialog {
+  constructor(
+    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+  ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 }
 
