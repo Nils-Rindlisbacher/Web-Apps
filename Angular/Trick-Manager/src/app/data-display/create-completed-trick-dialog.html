@@ -1,12 +1,20 @@
-<h2 mat-dialog-title>Hi {{data.name}}</h2>
 <mat-dialog-content>
-  <p>What's your favorite animal?</p>
+  <h4 style="color: black">Create new completed Trick</h4>
+
+  <p style="color: black">Choose a Trick you completed</p>
+
   <mat-form-field>
-    <mat-label>Favorite Animal</mat-label>
-    <input matInput [(ngModel)]="data.animal">
+    <mat-label>Trick</mat-label>
+    <mat-select>
+      @for (trick of data.tricks; track trick) {
+        <mat-option [value]="trick">{{trick}}</mat-option>
+      }
+    </mat-select>
   </mat-form-field>
+
 </mat-dialog-content>
+
 <mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+  <button mat-button (click)="onNoClick()">Close</button>
+  <button mat-button [mat-dialog-close]="" cdkFocusInitial>Create</button>
 </mat-dialog-actions>
