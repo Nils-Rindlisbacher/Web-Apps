@@ -31,6 +31,14 @@
         <li><h3>{{ trick }} @if (allCompletedTricksOfType.includes(trick)){ <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="check" /> } @else { <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="close" /> } </h3></li>
       }
     } @else if(page == 'completed'){
+
+      @if(selectedType != ''){
+        <button mat-raised-button (click)="openDialog()">Add Completed Trick</button>
+
+        <br>
+        <br>
+      }
+
       @if (allCompletedTricksOfType.length != 0){
       @for(trick of allCompletedTricksOfType; track trick.id){
         <li><h3>{{ trick }} <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="check" /></h3></li>
