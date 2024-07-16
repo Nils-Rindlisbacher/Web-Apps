@@ -19,6 +19,7 @@ import {MatOption, MatSelect} from "@angular/material/select";
 
 export interface DialogData {
   tricks: any[];
+  newCompletedTrick: string;
 }
 
 
@@ -41,6 +42,8 @@ export class DataDisplayComponent {
 
   isDropdownActive = false;
 
+  newCompletedTrick = '';
+
   selectedType: string = '';
   randomTrick: string = '';
 
@@ -55,10 +58,11 @@ export class DataDisplayComponent {
     console.log('Dialog open');
 
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-      data: {tricks: this.allTricksOfType},
+      data: {tricks: this.allTricksOfType, newCompletedTrick: this.newCompletedTrick},
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      this.newCompletedTrick = result;
       console.log('The dialog was closed');
     });
   }
