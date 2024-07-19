@@ -1,13 +1,14 @@
 import {Component, Inject, inject, Input} from '@angular/core';
 import {NgClass, NgForOf} from "@angular/common";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpClient, HttpClientModule, HttpHeaders} from "@angular/common/http";
 import {MatIconModule} from '@angular/material/icon';
 import {
   MAT_DIALOG_DATA,
   MatDialog,
   MatDialogActions,
   MatDialogClose,
-  MatDialogContent, MatDialogRef,
+  MatDialogContent,
+  MatDialogRef,
   MatDialogTitle
 } from "@angular/material/dialog";
 import {MatFormFieldModule} from "@angular/material/form-field";
@@ -15,11 +16,12 @@ import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatOption, MatSelect} from "@angular/material/select";
+import {catchError} from "rxjs";
 
 
 export interface DialogData {
   tricks: any[];
-  newCompletedTrick: string;
+  newCompletedTrick: any;
 }
 
 
@@ -42,16 +44,17 @@ export class DataDisplayComponent {
 
   isDropdownActive = false;
 
-  newCompletedTrick = '';
+  newCompletedTrick: any;
 
   selectedType: string = '';
   randomTrick: string = '';
 
   allTricksOfType: any[] = [];
   allCompletedTricksOfType: any[] = [];
-  trick_types: any[] = [];
+  allTricks: any[] = [];
 
-  data: any[] = [];
+  trickTypes: any[] = [];
+
   constructor(public dialog: MatDialog) {}
 
   openDialog(): void {
@@ -62,7 +65,10 @@ export class DataDisplayComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.newCompletedTrick = result;
+      this.newCompletedTrick = this.allTricks.find(trick => trick.name == result);
+
+      console.log('id: ' + this.newCompletedTrick.id + '\nname: ' + this.newCompletedTrick.name + '\ntype: ' + this.newCompletedTrick.type);
+
       console.log('The dialog was closed');
     });
   }
@@ -74,12 +80,12 @@ export class DataDisplayComponent {
   fetchData() {
     this.httpClient.get('http://localhost:8080/tricks')
       .subscribe((tricks: any) => {
-        this.data = tricks;
+        this.allTricks = tricks;
       });
 
     this.httpClient.get('http://localhost:8080/types')
       .subscribe((types: any) => {
-        this.trick_types = types;
+        this.trickTypes = types;
       });
   }
 
@@ -87,7 +93,7 @@ export class DataDisplayComponent {
     this.allTricksOfType = [];
     this.allCompletedTricksOfType = [];
 
-    for (let trick of this.data){
+    for (let trick of this.allTricks){
       if(trick.type == this.selectedType){
         this.allTricksOfType.push(trick.name);
         if (trick.completed){

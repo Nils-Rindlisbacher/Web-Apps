@@ -7,7 +7,7 @@
     <div id="dropdown" [ngClass]="{ active: isDropdownActive }">
 
       <ul>
-        <li *ngFor="let type of trick_types">
+        <li *ngFor="let type of trickTypes">
           <a (click)="selectedType = type; isDropdownActive = false; $event.stopImmediatePropagation(); getAllTricksOfType()">{{ type }}</a>
         </li>
       </ul>
