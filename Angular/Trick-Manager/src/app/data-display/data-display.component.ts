@@ -67,7 +67,11 @@ export class DataDisplayComponent {
     dialogRef.afterClosed().subscribe(result => {
       this.newCompletedTrick = this.allTricks.find(trick => trick.name == result);
 
-      console.log('id: ' + this.newCompletedTrick.id + '\nname: ' + this.newCompletedTrick.name + '\ntype: ' + this.newCompletedTrick.type);
+      console.log("{id: " + this.newCompletedTrick.id + ", name: " + this.newCompletedTrick.name + ", type: " + this.newCompletedTrick.type + ", completed: true}");
+
+      this.httpClient.put("http://localhost:8080/trick/98", "{id: " + this.newCompletedTrick.id + ", name: " + this.newCompletedTrick.name + ", type: " + this.newCompletedTrick.type + ", completed: true}").subscribe((result: any) => {
+        console.log(result);
+      });
 
       console.log('The dialog was closed');
     });
