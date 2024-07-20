@@ -67,12 +67,10 @@ export class DataDisplayComponent {
     dialogRef.afterClosed().subscribe(result => {
       this.newCompletedTrick = this.allTricks.find(trick => trick.name == result);
 
-      console.log("{id: " + this.newCompletedTrick.id + ", name: " + this.newCompletedTrick.name + ", type: " + this.newCompletedTrick.type + ", completed: true}");
+      const headers = { 'Content-Type': 'application/json' };
+      const body = { id: + this.newCompletedTrick.id, name: this.newCompletedTrick.name, type: this.newCompletedTrick.type, completed: true };
 
-      this.httpClient.put("http://localhost:8080/trick/98", "{id: " + this.newCompletedTrick.id + ", name: " + this.newCompletedTrick.name + ", type: " + this.newCompletedTrick.type + ", completed: true}").subscribe((result: any) => {
-        console.log(result);
-      });
-
+      this.httpClient.put('http://localhost:8080/trick/' + this.newCompletedTrick.id, body, { headers });
       console.log('The dialog was closed');
     });
   }
