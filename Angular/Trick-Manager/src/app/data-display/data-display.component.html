@@ -40,7 +40,7 @@
 
       @if (allCompletedTricksOfType.length != 0){
       @for(trick of allCompletedTricksOfType; track trick.id){
-        <li><h3>{{ trick }} <button type="button" class="btn btn-danger">&#10005;</button></h3></li>
+        <li><h3>{{ trick }} <button type="button" class="btn btn-danger" (click)="openDeleteDialog()">&#10005;</button></h3></li>
       }
       } @else if (this.selectedType !== ''){
         <h3 i18n>No completed tricks in this category</h3>

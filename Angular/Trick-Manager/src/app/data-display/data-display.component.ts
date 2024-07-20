@@ -58,9 +58,9 @@ export class DataDisplayComponent {
   constructor(public dialog: MatDialog) {}
 
   openDialog(): void {
-    console.log('Dialog open');
+    console.log('Create Dialog open');
 
-    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+    const dialogRef = this.dialog.open(CreateDialog, {
       data: {tricks: this.allTricksOfType, newCompletedTrick: this.newCompletedTrick},
     });
 
@@ -71,8 +71,13 @@ export class DataDisplayComponent {
       const body = { id: + this.newCompletedTrick.id, name: this.newCompletedTrick.name, type: this.newCompletedTrick.type, completed: true };
 
       this.httpClient.put('http://localhost:8080/trick/' + this.newCompletedTrick.id, body, { headers });
-      console.log('The dialog was closed');
     });
+  }
+
+  openDeleteDialog(): void {
+    console.log('Delete Dialog open');
+
+    const dialogRef = this.dialog.open(DeleteDialog);
   }
 
   ngOnInit(): void {
@@ -130,9 +135,39 @@ export class DataDisplayComponent {
     MatOption,
   ],
 })
-export class DialogOverviewExampleDialog {
+export class CreateDialog {
   constructor(
-    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    public dialogRef: MatDialogRef<CreateDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+  ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+
+
+
+@Component({
+  selector: 'delete-completed-trick-dialog',
+  templateUrl: 'delete-completed-trick-dialog.html',
+  standalone: true,
+  imports: [
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatButtonModule,
+    MatDialogTitle,
+    MatDialogContent,
+    MatDialogActions,
+    MatDialogClose,
+    MatSelect,
+    MatOption,
+  ],
+})
+export class DeleteDialog {
+  constructor(
+    public dialogRef: MatDialogRef<DeleteDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
   ) {}
 
