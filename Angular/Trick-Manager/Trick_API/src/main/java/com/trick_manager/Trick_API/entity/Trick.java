@@ -3,7 +3,6 @@ package com.trick_manager.Trick_API.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "skate_tricks")
 public class Trick {
 
   @Id
