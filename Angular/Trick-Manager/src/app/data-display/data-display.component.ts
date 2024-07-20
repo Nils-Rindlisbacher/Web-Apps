@@ -70,7 +70,7 @@ export class DataDisplayComponent {
       const headers = { 'Content-Type': 'application/json' };
       const body = { id: + this.newCompletedTrick.id, name: this.newCompletedTrick.name, type: this.newCompletedTrick.type, completed: true };
 
-      this.httpClient.put('http://localhost:8080/trick/' + this.newCompletedTrick.id, body, { headers });
+      this.httpClient.put('http://localhost:8080/trick/' + this.newCompletedTrick.id, body, { headers }).subscribe(data => this.newCompletedTrick.id = data);
     });
   }
 
