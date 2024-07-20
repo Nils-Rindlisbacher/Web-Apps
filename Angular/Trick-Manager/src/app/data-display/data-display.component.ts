@@ -45,6 +45,7 @@ export class DataDisplayComponent {
   isDropdownActive = false;
 
   newCompletedTrick: any;
+  deletedTrick: any;
 
   selectedType: string = '';
   randomTrick: string = '';
@@ -58,8 +59,6 @@ export class DataDisplayComponent {
   constructor(public dialog: MatDialog) {}
 
   openDialog(): void {
-    console.log('Create Dialog open');
-
     const dialogRef = this.dialog.open(CreateDialog, {
       data: {tricks: this.allTricksOfType, newCompletedTrick: this.newCompletedTrick},
     });
@@ -74,10 +73,17 @@ export class DataDisplayComponent {
     });
   }
 
-  openDeleteDialog(): void {
-    console.log('Delete Dialog open');
-
+  openDeleteDialog(deletedTrickName: any): void {
     const dialogRef = this.dialog.open(DeleteDialog);
+    
+    dialogRef.afterClosed().subscribe(result => {
+      this.deletedTrick = this.allTricks.find(trick => trick.name == deletedTrickName);
+
+      const headers = { 'Content-Type': 'application/json' };
+      const body = { id: + this.deletedTrick.id, name: this.deletedTrick.name, type: this.deletedTrick.type, completed: false };
+
+      this.httpClient.put('http://localhost:8080/trick/' + this.deletedTrick.id, body, { headers }).subscribe(data => this.deletedTrick.id = data);
+    });
   }
 
   ngOnInit(): void {
