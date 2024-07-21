@@ -19,9 +19,13 @@ import {MatOption, MatSelect} from "@angular/material/select";
 import {catchError} from "rxjs";
 
 
-export interface DialogData {
+export interface CreateDialogData {
   tricks: any[];
   newCompletedTrick: any;
+}
+
+export interface DeleteDialogData {
+  deletedTrickName: string;
 }
 
 
@@ -66,16 +70,24 @@ export class DataDisplayComponent {
     dialogRef.afterClosed().subscribe(result => {
       this.newCompletedTrick = this.allTricks.find(trick => trick.name == result);
 
-      const headers = { 'Content-Type': 'application/json' };
-      const body = { id: + this.newCompletedTrick.id, name: this.newCompletedTrick.name, type: this.newCompletedTrick.type, completed: true };
+      if(this.newCompletedTrick) {
+        const headers = {'Content-Type': 'application/json'};
+        const body = {
+          id: +this.newCompletedTrick.id,
+          name: this.newCompletedTrick.name,
+          type: this.newCompletedTrick.type,
+          completed: true
+        };
 
-      this.httpClient.put('http://localhost:8080/trick/' + this.newCompletedTrick.id, body, { headers }).subscribe(data => this.newCompletedTrick.id = data);
+        this.httpClient.put('http://localhost:8080/trick/' + this.newCompletedTrick.id, body, {headers}).subscribe(data => this.newCompletedTrick.id = data);
+      }
     });
   }
 
   openDeleteDialog(deletedTrickName: any): void {
-    const dialogRef = this.dialog.open(DeleteDialog);
-    
+    const dialogRef = this.dialog.open(DeleteDialog, {
+      data: {deletedTrickName: deletedTrickName},
+    });
     dialogRef.afterClosed().subscribe(result => {
       this.deletedTrick = this.allTricks.find(trick => trick.name == deletedTrickName);
 
@@ -144,7 +156,7 @@ export class DataDisplayComponent {
 export class CreateDialog {
   constructor(
     public dialogRef: MatDialogRef<CreateDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    @Inject(MAT_DIALOG_DATA) public data: CreateDialogData,
   ) {}
 
   onNoClick(): void {
@@ -174,7 +186,7 @@ export class CreateDialog {
 export class DeleteDialog {
   constructor(
     public dialogRef: MatDialogRef<DeleteDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    @Inject(MAT_DIALOG_DATA) public data: DeleteDialogData,
   ) {}
 
   onNoClick(): void {
