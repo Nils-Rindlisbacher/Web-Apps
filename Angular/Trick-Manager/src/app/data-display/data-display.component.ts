@@ -52,6 +52,7 @@ export class DataDisplayComponent implements OnInit{
   isDropdownActive = false;
 
   newCompletedTrick: any;
+  choosableNewCompletedTrick: any[] = [];
   deletedTrick: any;
 
   selectedType: string = '';
@@ -65,7 +66,7 @@ export class DataDisplayComponent implements OnInit{
 
   openDialog(): void {
     const dialogRef = this.dialog.open(CreateDialog, {
-      data: {tricks: this.allTricksOfType, newCompletedTrick: this.newCompletedTrick},
+      data: {tricks: this.choosableNewCompletedTrick, newCompletedTrick: this.newCompletedTrick},
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -122,12 +123,15 @@ export class DataDisplayComponent implements OnInit{
   getAllTricksOfType(){
     this.allTricksOfType = [];
     this.allCompletedTricksOfType = [];
+    this.choosableNewCompletedTrick = [];
 
     for (let trick of this.allTricks){
       if(trick.type == this.selectedType){
         this.allTricksOfType.push(trick.name);
         if (trick.completed){
           this.allCompletedTricksOfType.push(trick.name);
+        }else {
+          this.choosableNewCompletedTrick.push(trick.name)
         }
       }
     }
