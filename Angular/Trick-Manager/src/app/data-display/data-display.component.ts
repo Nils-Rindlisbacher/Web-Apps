@@ -101,8 +101,7 @@ export class DataDisplayComponent implements OnInit{
 
   ngOnInit(): void {
     this.fetchData();
-    this.selectedType = this.type;
-    console.log(this.selectedType)
+    if(this.type != undefined) this.selectedType = this.type;
   }
 
   fetchData() {
