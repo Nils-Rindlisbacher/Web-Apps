@@ -20,9 +20,4 @@ export class CompletedTricksComponent {
   ngOnInit() {
     this.type = this.route.snapshot.paramMap.get('type'); // Get the route parameter
   }
-
-  getCompletedTricks() {
-
-  }
-
 }
