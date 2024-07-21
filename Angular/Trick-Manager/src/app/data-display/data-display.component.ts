@@ -1,4 +1,4 @@
-import {Component, Inject, inject, Input} from '@angular/core';
+import {Component, Inject, inject, Input, OnInit} from '@angular/core';
 import {NgClass, NgForOf} from "@angular/common";
 import {HttpClient, HttpClientModule, HttpHeaders} from "@angular/common/http";
 import {MatIconModule} from '@angular/material/icon';
@@ -17,6 +17,7 @@ import {FormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatOption, MatSelect} from "@angular/material/select";
 import {catchError} from "rxjs";
+import {RouterLink} from "@angular/router";
 
 
 export interface CreateDialogData {
@@ -36,13 +37,15 @@ export interface DeleteDialogData {
     NgForOf,
     HttpClientModule,
     NgClass,
-    MatIconModule
+    MatIconModule,
+    RouterLink
   ],
   templateUrl: './data-display.component.html',
   styleUrl: './data-display.component.scss'
 })
-export class DataDisplayComponent {
+export class DataDisplayComponent implements OnInit{
   @Input() page: any;
+  @Input() type: any;
 
   httpClient = inject(HttpClient);
 
@@ -57,9 +60,7 @@ export class DataDisplayComponent {
   allTricksOfType: any[] = [];
   allCompletedTricksOfType: any[] = [];
   allTricks: any[] = [];
-
   trickTypes: any[] = [];
-
   constructor(public dialog: MatDialog) {}
 
   openDialog(): void {
@@ -73,7 +74,7 @@ export class DataDisplayComponent {
       if(this.newCompletedTrick) {
         const headers = {'Content-Type': 'application/json'};
         const body = {
-          id: +this.newCompletedTrick.id,
+          id: this.newCompletedTrick.id,
           name: this.newCompletedTrick.name,
           type: this.newCompletedTrick.type,
           completed: true
@@ -100,6 +101,8 @@ export class DataDisplayComponent {
 
   ngOnInit(): void {
     this.fetchData();
+    this.selectedType = this.type;
+    console.log(this.selectedType)
   }
 
   fetchData() {
