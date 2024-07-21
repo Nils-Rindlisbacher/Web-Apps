@@ -8,7 +8,7 @@
 
       <ul>
         <li *ngFor="let type of trickTypes">
-          <a (click)="selectedType = type; isDropdownActive = false; $event.stopImmediatePropagation(); getAllTricksOfType()">{{ type }}</a>
+          <a (click)="selectedType = type; isDropdownActive = false; $event.stopImmediatePropagation(); getAllTricksOfType()" [routerLink]="[page, type]">{{ type }}</a>
         </li>
       </ul>
     </div>
