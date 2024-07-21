@@ -81,6 +81,7 @@ export class DataDisplayComponent implements OnInit{
         };
 
         this.httpClient.put('http://localhost:8080/trick/' + this.newCompletedTrick.id, body, {headers}).subscribe(data => this.newCompletedTrick.id = data);
+        this.reloadPage();
       }
     });
   }
@@ -96,12 +97,14 @@ export class DataDisplayComponent implements OnInit{
       const body = { id: + this.deletedTrick.id, name: this.deletedTrick.name, type: this.deletedTrick.type, completed: false };
 
       this.httpClient.put('http://localhost:8080/trick/' + this.deletedTrick.id, body, { headers }).subscribe(data => this.deletedTrick.id = data);
+      this.reloadPage();
     });
   }
 
   ngOnInit(): void {
-    this.fetchData();
     if(this.type != undefined) this.selectedType = this.type;
+    this.fetchData();
+    this.getAllTricksOfType();
   }
 
   fetchData() {
@@ -134,6 +137,10 @@ export class DataDisplayComponent implements OnInit{
 
   getRandomInt(max: number) {
     return Math.floor(Math.random() * max);
+  }
+
+  reloadPage() {
+    location.reload();
   }
 }
 
