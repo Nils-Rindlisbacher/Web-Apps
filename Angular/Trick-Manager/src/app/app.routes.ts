@@ -13,6 +13,7 @@ export const routes: Routes = [
   { path: 'Generator', component: TrickGeneratorComponent },
   { path: 'Overview', component: TrickOverviewComponent },
   { path: 'Completed', component: CompletedTricksComponent },
+  { path: 'Completed/:type', component: CompletedTricksComponent },
 
   { path: 'Login', component: LoginComponent },
   { path: 'Register', component: RegisterComponent }
