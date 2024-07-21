@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {DataDisplayComponent} from "../data-display/data-display.component";
+import {ActivatedRoute} from "@angular/router";
 
 
 @Component({
@@ -12,8 +13,13 @@ import {DataDisplayComponent} from "../data-display/data-display.component";
   styleUrl: './completed-tricks.component.scss'
 })
 export class CompletedTricksComponent {
-  protected DataDisplayComponent = DataDisplayComponent;
+  DataDisplayComponent = DataDisplayComponent;
+  type!: string | null;
+  constructor(private route: ActivatedRoute) {}
 
+  ngOnInit() {
+    this.type = this.route.snapshot.paramMap.get('type'); // Get the route parameter
+  }
 
   getCompletedTricks() {
 
