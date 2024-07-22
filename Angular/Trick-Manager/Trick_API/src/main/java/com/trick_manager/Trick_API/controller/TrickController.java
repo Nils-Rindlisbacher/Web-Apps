@@ -28,22 +28,11 @@ public class TrickController {
     return ResponseEntity.ok(newTrick);
   }
 
-  @GetMapping("/tricks")
-  public List<Trick> getAllTricks() {
-    return trickService.getAllTricks();
-  }
-
-  @GetMapping("/types")
-  public List<String> getAllTypes() {
-    return trickService.getAllTypes();
-  }
-
   @GetMapping("/trick/{id}")
   public ResponseEntity<Trick> getTrickById(@PathVariable Long id) {
     Optional<Trick> trick = trickService.getTrickById(id);
     return trick.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
   }
-
 
   @PutMapping("/trick/{id}")
   public ResponseEntity<Trick> updateTrick(@PathVariable Long id, @RequestBody Trick trick) {
@@ -56,4 +45,16 @@ public class TrickController {
     trickService.deleteTrick(id);
     return ResponseEntity.ok("Trick deleted successfully");
   }
+
+
+  @GetMapping("/tricks")
+  public List<Trick> getAllTricks() {
+    return trickService.getAllTricks();
+  }
+
+  @GetMapping("/types")
+  public List<String> getAllTypes() {
+    return trickService.getAllTypes();
+  }
+
 }
